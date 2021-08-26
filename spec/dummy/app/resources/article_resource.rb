@@ -20,6 +20,6 @@ class ArticleResource
   end
 
   def comments
-    @comments ||= Current.comment_loader.load_many(@article.comment_ids).then { |comments| comments.map(&:to_resource) }
+    @comments ||= Current.comments_by_article_id_loader.load(@article.id).then { |comments| comments.map(&:to_resource) }
   end
 end

@@ -11,9 +11,10 @@ class Api::ApplicationController < ActionController::API
         Article.find(*ids)
       end
 
-    Current.comment_loader =
-      Dataloader.new do |*ids|
-        Comment.find(*ids)
+    Current.comments_by_article_id_loader =
+      Dataloader.new do |article_ids|
+        comments = Comment.where(article_id: article_ids)
+        comments.group_by { |comment| comment.article_id }
       end
 
     Current.user_loader =
