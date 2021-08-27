@@ -45,7 +45,7 @@ module Garage
           end
 
           batch_promise.then do |resource|
-            if resource.is_a?(GarageLazyRepresenter)
+            if resource.is_a?(Garage::Lazy::Representer)
               resource.represent! unless resource.representer_attrs
               resource.ensure_promises(selector: selector)
             end
@@ -75,7 +75,7 @@ module Garage
 
           batch_promise.then do |resources|
             resources.each do |resource|
-              if resource.is_a?(GarageLazyRepresenter)
+              if resource.is_a?(Garage::Lazy::Representer)
                 resource.represent! unless resource.representer_attrs
                 resource.ensure_promises(selector: selector)
               end
