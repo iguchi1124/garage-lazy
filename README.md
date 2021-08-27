@@ -1,8 +1,5 @@
 # Garage::Lazy
-Short description and motivation.
-
-## Usage
-How to use my plugin.
+Garage extension to render json by lazy evaluation.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -14,11 +11,6 @@ gem 'garage-lazy'
 And then execute:
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install garage-lazy
 ```
 
 ## Contributing
