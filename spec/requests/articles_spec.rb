@@ -34,7 +34,15 @@ describe Api::ArticlesController, type: :request do
         expect(response.body).to be_json_including(
           articles.first(20).map { |article|
             {
-              id: article.id
+              id: article.id,
+              user: {
+                id: article.user.id,
+              },
+              comments: article.comments.map { |comment|
+                {
+                  id: comment.id
+                }
+              },
             }
           }
         )
